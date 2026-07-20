@@ -2,7 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 @dataclass
-class CharacterTokensizer:
+class CharacterTokenizer:
     stoi : dict[str, int]
     itos : dict[int, str]
 
