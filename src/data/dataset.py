@@ -7,7 +7,7 @@ class CharacterDataset(Dataset) :
 
     def __init__(self, data:Tensor, block_size: int) :
         self.data  = data 
-        self.block_data = block_size
+        self.block_size = block_size
 
     def __len__(self) -> int :
         return self.data.size(0) - self.block_size
