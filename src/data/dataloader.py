@@ -16,7 +16,7 @@ class MiniDataLoader :
         self.dataset = dataset
         self.batch_size = batch_size
         self.shuffle = shuffle
-        self.drop = drop_last
+        self.drop_last = drop_last
 
     def __iter__(self) :
         self.indices = list(range(len(self.dataset)))
