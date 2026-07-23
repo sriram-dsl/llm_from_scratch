@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from models.lm import LanguageModel
-from ..losses.loss import CrossEntropyLoss
+from ..models.lm import LanguageModel
+#from ..losses.loss import CrossEntropyLoss
 from ..data.tokenizer import CharacterTokenizer
 import torch.nn.functional as F
 
