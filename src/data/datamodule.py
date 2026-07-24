@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Type
 
 import torch
 
@@ -14,6 +15,7 @@ class CharacterDataModule:
     def __init__(
         self,
         file_path: str,
+        dataset_cls: Type[CharacterDataset],
         block_size: int,
         batch_size: int,
         train_split: float = 0.9,
@@ -21,6 +23,7 @@ class CharacterDataModule:
     ) -> None:
 
         self.file_path = Path(file_path)
+        self.datasetcls = dataset_cls
         self.block_size = block_size
         self.batch_size = batch_size
         self.train_split = train_split
@@ -43,12 +46,12 @@ class CharacterDataModule:
         train_tokens = self.data[:split_idx]
         val_tokens = self.data[split_idx:]
 
-        self.train_dataset = CharacterDataset(
+        self.train_dataset = self.datasetcls(
             train_tokens,
             self.block_size,
         )
 
-        self.val_dataset = CharacterDataset(
+        self.val_dataset = self.datasetcls(
             val_tokens,
             self.block_size,
         )

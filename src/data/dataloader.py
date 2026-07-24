@@ -3,12 +3,13 @@ from __future__ import annotations
 import random
 import torch
 from torch import Tensor
+from torch.utils.data import Dataset
 
 class MiniDataLoader :
 
     def __init__(
             self,
-            dataset,
+            dataset: Dataset,
             batch_size: int,
             shuffle: bool = True,
             drop_last: bool = False,
